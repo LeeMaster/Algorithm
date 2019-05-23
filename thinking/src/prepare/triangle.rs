@@ -34,6 +34,15 @@ pub fn max_triangle_perimeter_violence(array:& Vec<i32>) -> i32 {
 // nlogn solution
 #[allow(dead_code)]
 pub fn max_triangle_perimeter_nlogn(array:& Vec<i32>) -> i32 {
-    
+    let mut sortable_arr = array.clone();
+    sortable_arr.sort();
+    sortable_arr.reverse();
+    let mut i = 0;
+    while i < array.len(){
+        if sortable_arr[i + 1 as usize] + sortable_arr[i + 2 as usize] > sortable_arr[i as usize] {
+           return  sortable_arr[i + 1 as usize] + sortable_arr[i + 2 as usize] + sortable_arr[i as usize]; 
+        }
+        i += 3;
+    }
     0
 }
