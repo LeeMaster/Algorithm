@@ -30,9 +30,27 @@ pub fn dimension_prefix_sum_violence(matrix: &Vec<Vec<i32>>,left_top_point:(i32,
 /// # 容斥定理解法
 ///
 /// 对结果进行预先处理，再进行查询
+/// 预处理结果会生成一个前缀和缓存矩阵，通过缓存矩阵直接通过容斥定理查询结果。直接降低查询复杂度。
+/// 对于一个集合寻找其中子集合的各种叠加属性，使用容斥定理很好用
 #[allow(dead_code)]
 pub fn dimensiom_prefix_sum_optmize(matrix: &Vec<Vec<i32>>,left_top_point:(i32,i32),right_bottom_point:(i32,i32)) -> i32 {
-    let mut sum = 0;
+    let width = matrix.len();
+    let length = matrix[0].len();
+    let mut record_matrix = matrix.clone();
 
-    sum
+    for i in 1..width{
+        for j in 1..length{
+            record_matrix[i][j] = record_matrix[i-1][j] + record_matrix[i][j-1] - record_matrix[i -1][j - 1];
+        }
+    }
+
+    // TODO should check if the trait Index can impl for the Vec<i32> but this is tedious to write
+    (
+        record_matrix[right_bottom_point.0 as usize][right_bottom_point.1 as usize ] -
+        record_matrix[(left_top_point.0 - 1) as usize ][right_bottom_point.1 as usize ] -
+        record_matrix[right_bottom_point.0 as usize ][(left_top_point.1 - 1) as usize ] +
+        record_matrix[(left_top_point.0 - 1) as usize][(left_top_point.1 - 1) as usize]
+    )
 }
+
+// TODO should add the algo of the difference theory for the set theory 
