@@ -26,10 +26,10 @@ pub fn maze_shortest_way_bfs_solve(map:& Vec<Vec<MazeStatus>>,start:(usize,usize
       let position = queue.pop_front().unwrap();
 
       // get the top bottom left right value 
-      let mut top = (position.0,position.1 - 1,position.2 + 1);
-      let mut left = (position.0 - 1,position.1,position.2 + 1);
-      let mut right = (position.0 + 1,position.1,position.2 + 1);
-      let mut bottom = (position.0,position.1 + 1,position.2 + 1);
+      let top = (position.0,position.1 - 1,position.2 + 1);
+      let left = (position.0 - 1,position.1,position.2 + 1);
+      let right = (position.0 + 1,position.1,position.2 + 1);
+      let bottom = (position.0,position.1 + 1,position.2 + 1);
 
 
       for next_pos in [left,top,right,bottom].iter() {
