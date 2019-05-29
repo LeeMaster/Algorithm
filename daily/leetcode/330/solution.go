@@ -1,4 +1,4 @@
-
+package main
 // 这个问题看起来可能比较难
 //
 // 但是对于这个题目思考一下会发现，这个问题的本质是，给一个集合，修补集合，使得集合成为一个新的集合，并且这个新的集合中的各个子数组和的枚举
@@ -17,13 +17,17 @@ func minPatches(nums []int, n int) int {
 	count := 0
 	size := len(nums)
 	for suffix_sum <= n {
-		if i < size && suffix_sum >= nums[i] {
-			suffix_sum += nums[i]
-			i += 1
+		if index < size && suffix_sum >= nums[index] {
+			suffix_sum += nums[index]
+			index += 1
 		} else {
 			count += 1
 			suffix_sum = suffix_sum << 1
 		}
 	}
 	return 0
+}
+
+func main(){
+	
 }
