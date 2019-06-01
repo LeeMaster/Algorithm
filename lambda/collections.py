@@ -50,6 +50,9 @@ def finding_nxest_object_inset():
     heapq.nsmallest(3, portfolio, key=lambda s : s['price'])
 
 def implement_priority_queue():
+    """
+    when use the heappush then the proority will be used to heapfy the heap list 
+    """
     import heapq
 
     class PriorityQueue():
