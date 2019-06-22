@@ -1,6 +1,6 @@
 package structure
 
-type Queue interface {
+type PQueue interface {
 	Enqueue(item Ord) bool
 	Dequeue() Ord
 	Front() Ord

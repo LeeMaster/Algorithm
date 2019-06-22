@@ -5,14 +5,15 @@ type Order interface {
 	// Cmp will return the 0 if the two object is equal less is -1 grather is 1
 	Cmp(other Order) int
 }
-type Key interface{
-    Index() int 
-}
+
 // Key interface could use in the map 
 type Index interface {
-    Order
-    // return the int index 
-    Key() Key
+    Key() int
+}
+
+type Entry interface{
+	Order
+	Index
 }
 
 type Interable interface{
@@ -26,7 +27,7 @@ type List interface {
 	// Get element in the list of index
 	Get(index int) (Order, error)
 	// insert element at the index
-	Insert(index int, entity Order) bool
+	Insert(index int, element Order) bool
 	// remove the element at the index
 	Remove(index int) (Order, error)
 	// return the list size
@@ -57,15 +58,14 @@ type Queue interface {
 	Tail() (Order, error)
 }
 
-// TODO Index 类型 + Value 类型是否可以作为一个KV组合？
 type Set interface {
     Interable 
     List
-    Contains(element Key) bool 
+    Contains(element Index) bool 
 }
 
 type Map interface{
-    Get(key Key) (Index,error)
-    Put(key Key,value Index) (Index,,error)
+    Get(key Index) (Order,error)
+    Put(key Index,value Order) bool
     KeySet()(Set,error)
 }
