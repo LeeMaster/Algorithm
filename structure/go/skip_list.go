@@ -126,7 +126,8 @@ func (list *SkipList) Put(key Index, value Order) bool {
 		value,
 		key,
 	}
-
+	// the entry is the implementation of the interface ,when call the method which use the interface type as the parameters
+	// then should use the pointer to pass the reference of the entry type
 	// this usage in golang is that accessing the address to get the real object for interface
 	err := list.insert(&entry)
 
