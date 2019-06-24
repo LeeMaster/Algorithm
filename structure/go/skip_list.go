@@ -1,5 +1,6 @@
 package structure
 
+// should implement the Map Interface to support the map feature
 import (
 	"math/rand"
 )
