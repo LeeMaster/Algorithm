@@ -1,26 +1,30 @@
 package structure
 
+// the interface of the all of the structure
+// About the base list map and set which can be interable
+// Automation will to be implementd by the DFA FST and AC Macthine
+
 // base type interface
 type Order interface {
 	// Cmp will return the 0 if the two object is equal less is -1 grather is 1
 	Cmp(other Order) int
 }
 
-// Key interface could use in the map 
+// Key interface could use in the map
 type Index interface {
-    Key() int
+	Key() int
 }
 
-type Entry interface{
+type Entry interface {
 	Order
 	Index
 }
 
-type Interable interface{
-    // HasNext
-    HasNext() bool
-    // Next 
-    Next() Order 
+type Interable interface {
+	// HasNext
+	HasNext() bool
+	// Next
+	Next() Order
 }
 
 type List interface {
@@ -59,14 +63,21 @@ type Queue interface {
 }
 
 type Set interface {
-    Interable 
-    List
-    Contains(element Index) bool 
+	Interable
+	List
+	Contains(element Index) bool
 }
 
-type Map interface{
-    Get(key Index) (Order,error)
-	Put(key Index,value Order) bool
+type Map interface {
+	Get(key Index) (Order, error)
+	Put(key Index, value Order) bool
 	Remove(Key Index) bool
-    KeySet()(Set,error)
+	KeySet() (Set, error)
+}
+
+type Automation interface {
+	// compile the pattern
+	Compile(pattern string)
+	// match the pattern
+	Match(pattern string)
 }
