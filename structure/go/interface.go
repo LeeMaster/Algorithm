@@ -71,7 +71,7 @@ type Set interface {
 type Map interface {
 	Get(key Index) (Order, error)
 	Put(key Index, value Order) bool
-	Remove(Key Index) bool
+	Remove(key Index) bool
 	KeySet() (Set, error)
 }
 
