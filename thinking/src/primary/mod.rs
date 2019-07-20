@@ -11,3 +11,4 @@ pub mod maze_short_path;
 pub mod part_sum_pruing;
 pub mod saruman_armys;
 pub mod fence_repair;
+pub mod coin_problem;
