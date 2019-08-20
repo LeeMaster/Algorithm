@@ -1,4 +1,4 @@
-package structure
+package main
 
 type node struct {
 	Key   Index
@@ -33,18 +33,20 @@ func (err *NotEmitCacheError) Error() string {
 
 func (lru *LRU) Get(key Index) (Order, error) {
 	if lru.size == 0 {
-		return nil, NotEmitCacheError{}
+		return nil, nil
 	}
+
+	return nil, nil
 }
 
 func (lru *LRU) Put(key Index, val Order) bool {
-
+	return false
 }
 
 func (lru *LRU) Remove(key Index) bool {
-
+	return false
 }
 
-func (lru *LRU) KeySet() (Ser, error) {
-	return nil, nil
-}
+// func (lru *LRU) KeySet() (Ser, error) {
+// 	return nil, nil
+// }

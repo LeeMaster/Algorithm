@@ -1,4 +1,4 @@
-package structure
+package main
 
 // should implement the Map Interface to support the map feature
 import (

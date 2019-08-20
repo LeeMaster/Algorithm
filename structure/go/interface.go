@@ -1,4 +1,4 @@
-package structure
+package main
 
 // the interface of the all of the structure
 // About the base list map and set which can be interable
