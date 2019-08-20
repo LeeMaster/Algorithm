@@ -13,11 +13,17 @@ func (some *SomeCompare) Compare(comparer Comparer) (int32, error) {
 	return 0, nil
 }
 
+type Int int
+
+func (i Int) Compare(comparer Comparer) (int32, error) {
+	return 0, nil
+}
+
 func TestCompaerNode(t *testing.T) {
 
 	value := SomeCompare{int32(1)}
 
-	node := fabonaciNode{0, nil, nil, nil, nil}
+	node := fabonaciNode{Int(0), nil, nil, nil, nil, 0, false}
 
 	result, err := node.Compare(&value)
 	if err != nil {
