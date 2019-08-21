@@ -23,7 +23,7 @@ func TestCompaerNode(t *testing.T) {
 
 	value := SomeCompare{int32(1)}
 
-	node := fabonaciNode{Int(0), nil, nil, nil, nil, 0, false}
+	node := fibonaciNode{Int(0), nil, nil, nil, nil, 0, false}
 
 	result, err := node.Compare(&value)
 	if err != nil {

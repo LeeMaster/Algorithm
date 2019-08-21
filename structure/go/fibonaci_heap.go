@@ -21,42 +21,42 @@ type Heap interface {
 	Delete(value Comparer)
 }
 
-type fabonaciNode struct {
+type fibonaciNode struct {
 	value  Comparer
-	parent *fabonaciNode
-	child  *fabonaciNode
-	left   *fabonaciNode
-	right  *fabonaciNode
+	parent *fibonaciNode
+	child  *fibonaciNode
+	left   *fibonaciNode
+	right  *fibonaciNode
 	degree int  // FIXME: why this variable not be used
 	mark   bool // this node is the smallest of the all child
 }
 
 // Implement Comparer trait then can compare two nodes directly
-func (node *fabonaciNode) Compare(comparer Comparer) (int32, error) {
-	other, ok := comparer.(*fabonaciNode)
+func (node *fibonaciNode) Compare(comparer Comparer) (int32, error) {
+	other, ok := comparer.(*fibonaciNode)
 	if ok {
 		return node.value.Compare(other.value)
 	}
 	return -2, errors.New("Not suitable type input")
 }
 
-// FabonaciHeap is the FabonaciHeap struct
-type FabonaciHeap struct {
-	min  *fabonaciNode
-	root *fabonaciNode // the minimum at the heap
+// FibonaciHeap is the FibonaciHeap struct
+type FibonaciHeap struct {
+	min  *fibonaciNode
+	root *fibonaciNode // the minimum at the heap
 	Len  int
 	// is the D(n) the root linked list max length
 	max int //FIXME:  when the root array to the max then traigger the decrease_key method ?
 }
 
-// NewFabonaciHeap create a new FabonaciHeap
-func NewFabonaciHeap(rootMax int) FabonaciHeap {
-	return FabonaciHeap{nil, nil, 0, rootMax}
+// NewFibonaciHeap create a new FibonaciHeap
+func NewFibonaciHeap(rootMax int) FibonaciHeap {
+	return FibonaciHeap{nil, nil, 0, rootMax}
 }
 
 // Insert a new compare value in to the heap
-func (heap *FabonaciHeap) Insert(value Comparer) bool {
-	waited := value.(*fabonaciNode)
+func (heap *FibonaciHeap) Insert(value Comparer) bool {
+	waited := value.(*fibonaciNode)
 	if heap.root == nil {
 		heap.root = waited
 		heap.min = heap.root
@@ -71,12 +71,12 @@ func (heap *FabonaciHeap) Insert(value Comparer) bool {
 }
 
 // Minimum get the minimum value of this heap
-func (heap *FabonaciHeap) Minimum() Comparer {
+func (heap *FibonaciHeap) Minimum() Comparer {
 	return heap.min
 }
 
 // ExtractMin return the min and then will re-adjust the heap to blance
-func (heap *FabonaciHeap) ExtractMin() Comparer {
+func (heap *FibonaciHeap) ExtractMin() Comparer {
 	pointer := heap.min
 	if pointer != nil {
 		precursor := pointer.left
@@ -107,8 +107,8 @@ func (heap *FabonaciHeap) ExtractMin() Comparer {
 }
 
 // Union two heap
-func (heap *FabonaciHeap) Union(outer Heap) bool {
-	innerHeap, ok := outer.(*FabonaciHeap)
+func (heap *FibonaciHeap) Union(outer Heap) bool {
+	innerHeap, ok := outer.(*FibonaciHeap)
 	if !ok {
 		// maybe the K-ary Heap but this thing cloud seem impossible !
 		return ok
@@ -142,17 +142,17 @@ func (heap *FabonaciHeap) Union(outer Heap) bool {
 }
 
 // DecreaseKey will decrease the root list of this heap
-func (heap *FabonaciHeap) DecreaseKey(origin, target Comparer) bool {
+func (heap *FibonaciHeap) DecreaseKey(origin, target Comparer) bool {
 	return false
 }
 
 // Delete a node from this heap
-func (heap *FabonaciHeap) Delete(value Comparer) {
+func (heap *FibonaciHeap) Delete(value Comparer) {
 
 }
 
 // insert is inset with the node
-func (heap *FabonaciHeap) insert(node *fabonaciNode) {
+func (heap *FibonaciHeap) insert(node *fibonaciNode) {
 	pointer := heap.min
 
 	// allways inset at the min left to keep circularly
@@ -168,6 +168,6 @@ func (heap *FabonaciHeap) insert(node *fabonaciNode) {
 }
 
 // consolidate will heapfy this heap
-func (heap *FabonaciHeap) consolidate() {
+func (heap *FibonaciHeap) consolidate() {
 
 }
