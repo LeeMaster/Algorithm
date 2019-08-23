@@ -43,7 +43,7 @@ using namespace std;
 
 /**
  * 这个题目就是字符串匹配问题，复习一下KMP
- * TODO: KMP 实现一下 
+ * 详见另外的KMP文件内的实现。
  */
 class Solution {
 public:
