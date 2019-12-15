@@ -1,3 +1,3 @@
 # Daily Problem 
 
-Daily  learning 
+Leetcode problems 
