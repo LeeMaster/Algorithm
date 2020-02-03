@@ -7,6 +7,7 @@
 #include <mutex>
 #include <vector>
 #include <condition_variable>
+#include <memory>
 
 /**
  * 线程池设计思路
@@ -36,6 +37,7 @@ namespace tm{
 
   std::mutex mutex;
 
+  //std::shared_ptr<int> a;
 
 
   class ThreadPool{
@@ -52,7 +54,7 @@ namespace tm{
     public:
       template<class F, class... Args>
       auto Commit(F&& function, Args&& ... args) -> std::future<decltype(function(args...))>{
-
+        // will submit int the task queue will implement in the ring
       }
   };
 
