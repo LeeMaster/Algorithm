@@ -2,16 +2,16 @@
 //!
 //! n只蚂蚁在长度为L的木板上以以一个单位的速度进行移动，如果两只蚂蚁相遇，那么他们会向相反的方向进行移动。求所有蚂蚁都从木板上掉落下来的最大时间。
 
-use std::cmp::max as  MAX;
+use std::cmp::max as MAX;
 
 /// 首先得到这个问题，就需要进行思考，如果蚂蚁碰撞之后向反向移动，那么相当于他原来走过的路程又走回去了，那在木板上停留时间最长的蚂蚁肯定是最后一个掉落的蚂蚁
 /// 因为蚂蚁们的初始距离木板边缘距离是确定的，那么这里有一个事实，最后掉落的蚂蚁走的路程是最长的。
 /// 所以初始路程最长的蚂蚁就是的落下木板的时长就是最长的时间，虽然题目中不能进行交换，但是蚂蚁都是相同的，所以如果两个蚂蚁相遇
 /// 完全可以认为他们两个直接进行了交换，所有的蚂蚁都会按照初始化的路程进行前进。
-pub fn ant_longest_time(ants:&Vec<i32>,length:i32) -> i32 {
-   let mut max = 0;
-   for dest in ants {
-       max = MAX(max,length - dest);
-   }
-   max
+pub fn ant_longest_time(ants: &Vec<i32>, length: i32) -> i32 {
+    let mut max = 0;
+    for dest in ants {
+        max = MAX(max, length - dest);
+    }
+    max
 }

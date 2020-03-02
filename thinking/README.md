@@ -1,7 +1,14 @@
-# 挑战程序设计竞赛 第一本书
+# 算法学习
 
-书中内容全部使用Rust实现了，并且加上了自己的想法，和一些相关的论文连接
+单元测试
 
-```rust 
-cargo test -- --nocapture 
+```shell 
+chmod +x test
+./test 
+```
+
+学习算法的笔记 
+
+```shell
+cargo doc --open
 ```

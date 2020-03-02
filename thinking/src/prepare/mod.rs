@@ -2,5 +2,5 @@
 //! * 最长三角形周长问题
 //! * 蚂蚁问题 POJ.no1852
 
-pub mod triangle;
 pub mod ants;
+pub mod triangle;
