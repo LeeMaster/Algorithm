@@ -8,7 +8,7 @@
 /// 这个问题的解决思路还是比较简单的，首先从第一个未被覆盖的点进行遍历，遍历的时候记录下一个可以进行覆盖的点，先清理左边，后清理右边
 /// 对于这种在一个集合中，某个位置左右两侧都要进行相同处理的问题，可以将左右两个条件列出来，然后统一进行处理。这样思考比较完整
 
-#[allow(dead_lock,non_snake_case)]
+#[allow(dead_code,non_snake_case)]
 pub fn solve_saruman_armys(armys: & Vec<i32>,R:i32) -> i32 {
     let mut index = 0;
     let mut sum = 0;

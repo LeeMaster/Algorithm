@@ -1,5 +1,3 @@
-extern crate algo;
-
 use algo::primary::*;
 
 #[test]

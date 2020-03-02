@@ -5,11 +5,3 @@ authors = ["leemaster <leemast3r@outlook.com>"]
 edition = "2018"
 
 [dependencies]
-
-[[test]]
-path = "tests/pre_triangle.rs"
-name = "prepare_triangle_problem"
-
-[[test]]
-path = "tests/pri_part_sum.rs"
-name = "primary_part_sum_problem"

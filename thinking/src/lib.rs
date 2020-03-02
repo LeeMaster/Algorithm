@@ -13,24 +13,27 @@
 //! 前缀名称如下：
 //! * pre -> prepare 
 //! * pri -> primary
-//! * int -> intermediate 
-//! * adv -> advanced
-//! * oth -> other 
-
-
-
 pub mod prepare;
 pub mod primary;
 pub mod advanced;
 pub mod intermediate;
-pub mod common;
 pub mod other;
-
 
 #[cfg(test)]
 mod tests {
     #[test]
     fn it_works() {
-        assert_eq!(2 + 2, 4);
+        let logo = r#"
+         ▄▄▄· ▄▄▌   ▄▄ •       ▄▄▄  ▪  ▄▄▄▄▄ ▄ .▄• ▌ ▄ ·. 
+        ▐█ ▀█ ██•  ▐█ ▀ ▪▪     ▀▄ █·██ •██  ██▪▐█·██ ▐███▪
+        ▄█▀▀█ ██▪  ▄█ ▀█▄ ▄█▀▄ ▐▀▀▄ ▐█· ▐█.▪██▀▐█▐█ ▌▐▌▐█·
+        ▐█ ▪▐▌▐█▌▐▌▐█▄▪▐█▐█▌.▐▌▐█•█▌▐█▌ ▐█▌·██▌▐▀██ ██▌▐█▌
+         ▀  ▀ .▀▀▀ ·▀▀▀▀  ▀█▄▀▪.▀  ▀▀▀▀ ▀▀▀ ▀▀▀ ·▀▀  █▪▀▀▀
+         "#;
+
+        println!("\n\n{}\n",logo);
+
+        println!("Hello this is leemaster's algo practice project implemented by Rust!");
+        println!("Rust is the best language of my all developing life");
     }
 }

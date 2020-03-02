@@ -12,6 +12,6 @@
 //!
 
 #[allow(dead_code)]
-pub fn coin_problem_greedy(coins: &Vec<i32>,numbers: & Vec<i32>,payment: i32) -> i32 {
+pub fn coin_problem_greedy(_coins: &Vec<i32>,numbers: & Vec<i32>,payment: i32) -> i32 {
     0
 }

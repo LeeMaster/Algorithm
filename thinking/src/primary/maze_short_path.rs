@@ -16,7 +16,7 @@ pub enum MazeStatus {
 /// 
 /// 从起点开始进行搜索，因为图中已经标记了开始和结束位置了，如果发现下一个位置就是终点的话，直接返回就是最短路径。
 #[allow(dead_code)]
-pub fn maze_shortest_way_bfs_solve(map:& Vec<Vec<MazeStatus>>,start:(usize,usize),end:(usize,usize)) -> i32{
+pub fn maze_shortest_way_bfs_solve(map:& Vec<Vec<MazeStatus>>,start:(usize,usize)) -> i32{
     let mut queue = VecDeque::<(usize,usize,i32)>::new();
     let right_edge = map.len() - 1;
     let bottom_edge = map[0].len() - 1;
