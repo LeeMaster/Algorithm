@@ -4,3 +4,5 @@
 .setting
 .leetcode
 .gradle
+**/target
+**/Cargo.lock
