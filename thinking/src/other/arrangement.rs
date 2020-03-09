@@ -11,12 +11,13 @@
 pub mod Permute {
 
     /// 直接DFS搜索，回溯，扫描到当前数字的时候将数字加入，然后再进行DFS，完成后再移除
+    /// leetcode 46
     /// TODO: 后续思考一下能不能用宏实现一下
     pub fn permute(nums: Vec<i32>) -> Vec<Vec<i32>> {
         // should use this way to create a 2d vector on heap
         let mut result: Vec<Vec<i32>> = Vec::new();
         let mut temp: Vec<i32> = Vec::new();
-        self::permute_dfs(nums.as_ref(), result.as_mut(), temp.as_mut());
+        permute_dfs(nums.as_ref(), result.as_mut(), temp.as_mut());
         result
     }
     // inner dfs for this method
@@ -27,7 +28,7 @@ pub mod Permute {
             for item in array {
                 if !temp.contains(item) {
                     temp.push(*item);
-                    self::dfs(array, result, temp);
+                    permute_dfs(array, result, temp);
                     temp.remove(temp.len() - 1);
                 }
             }

@@ -11,7 +11,19 @@
 //! ok，那么剩下的钱如何支付呢？自然是从剩下的硬币中选取最大的面值来进行支付，问题被减小了一个复杂度
 //!
 
+use std::cmp;
+
 #[allow(dead_code)]
-pub fn coin_problem_greedy(_coins: &Vec<i32>, numbers: &Vec<i32>, payment: i32) -> i32 {
-    0
+pub fn coin_problem_greedy(coins: Vec<i32>, numbers: Vec<i32>, payment: i32) -> i32 {
+    let mut payment = payment;
+    let mut ans = 0;
+    for (i,v) in coins.iter().rev().enumerate(){
+      if payment == 0 {
+        break;
+      }
+      let used = cmp::min(payment / v, numbers[i]);
+      payment -= used * v;
+      ans += used;
+    }
+    ans
 }
