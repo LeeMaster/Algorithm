@@ -6,3 +6,4 @@
 .gradle
 **/target
 **/Cargo.lock
+.elixir_ls
